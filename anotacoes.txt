@@ -1,0 +1,29 @@
+Todos esses comandos são para arrays
+
+
+// forEach → percorre cada item do array e faz algo com ele (não retorna nada novo)
+produtos.forEach((elem, i) => {
+    // você usa isso no carrega_produtos.js pra criar um card por produto
+})
+
+// filter → cria um NOVO array só com os itens que passam num teste
+produtos.filter(elem => elem.id_secao === idSecao)
+// você usa isso no produtosFiltrados()
+
+// find → procura o PRIMEIRO item que bate com a condição, e para (retorna um item só, não um array)
+carrinho.find(item => item.nome === produtoSelecionado.nome)
+// você usa isso no script_compras.js pra ver se o produto já tá no carrinho
+
+---
+
+// push → adiciona um item no FINAL do array
+tarefas.push(novaTarefa)
+
+// map → cria um NOVO array transformando cada item (ex: pegar só os ids)
+tarefas.map(t => t.id)
+
+// splice → remove (ou substitui) itens no meio do array, por posição
+tarefas.splice(2, 1) // remove 1 item a partir da posição 2
+
+// findIndex → parecido com find, mas retorna a POSIÇÃO (índice) do item, não o item em si
+tarefas.findIndex(t => t.id === 5) // retorna a posição da tarefa com id 5
