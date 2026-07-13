@@ -27,3 +27,6 @@ tarefas.splice(2, 1) // remove 1 item a partir da posição 2
 
 // findIndex → parecido com find, mas retorna a POSIÇÃO (índice) do item, não o item em si
 tarefas.findIndex(t => t.id === 5) // retorna a posição da tarefa com id 5
+
+
+vai ser interessante pesquisar mais sobre banco de dados, duplicidade de valores, etc
