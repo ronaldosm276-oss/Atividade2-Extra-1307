@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade 2 - Extra</title>
+
+    <link rel="stylesheet" href="css/estilo.css">
+    <script src="js/script.js" defer></script>
+
+</head>
+
+<body>
+
+    <div id="geral">
+        <h1>GERENCIADOR DE TAREFAS</h1>
+        <section id="add">
+            <form action="" id="addTarefa">
+
+                <label for="tarefa">Tarefa</label>
+                <input type="text" id="tarefa" required>
+
+                <label for="responsavel">Responsável</label>
+                <input type="text" id="responsavel" required>
+
+                <label for="descricao">Descrição</label>
+                <input type="text" id="descricao" required>
+
+
+                <h2>
+                    <label for="prioridade">Prioridade</label>
+                </h2>
+                <input type="radio" name="prioridade" id="alta" value="A" required> Alta
+
+                <input type="radio" name="prioridade" id="media" value="M" required> Média
+
+                <input type="radio" name="prioridade" id="baixa" value="B" required> Baixa
+
+                <label for="dataInclusao">Data Tarefa</label>
+                <input type="date" name="dataInclusao" id="dataInclusao" class="" required placeholder="data">
+
+                <button type="submit">Adicionar Tarefa</button>
+                <button type="reset">Limpar</button>
+
+            </form>
+        </section>
+
+        <section id="contagemProgresso">
+
+        </section>
+        <section id="contagemCategoria">
+
+        </section>
+
+        <div id="cardsTarefa">
+
+            <div id="aberto" class="cards">
+                
+            </div>
+
+            <div id="andamento" class="cards">
+
+            </div>
+
+            <div id="finalizado" class="cards">
+
+            </div>
+        </div>
+
+
+
+
+    </div>
+</body>
+
+</html>
