@@ -1,13 +1,257 @@
-#geral{
-    background-color: aquamarine;
-
+/* ============================================
+   RESET BÁSICO
+   ============================================ */
+   * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-#add{
+body {
+    background-color: #f7f6f5;
+    color: #052945;
+}
+
+/* ============================================
+   CONTAINER GERAL
+   ============================================ */
+#geral {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 30px 20px;
+
+    /* Grid principal: coluna larga (form/cards) + coluna estreita (contagem de status) */
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap: 20px;
+}
+
+#geral h1 {
+    grid-column: 1 / -1; /* ocupa as duas colunas do grid */
     text-align: center;
-    justify-content: center;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
 }
-#descricao{
-    height: 150px;
 
+/* ============================================
+   FORMULÁRIO (bloco azul-escuro)
+   ============================================ */
+#add {
+    grid-column: 1;
+    grid-row: 2;
+
+    background-color: #052945;
+    border-radius: 10px;
+    padding: 25px;
+}
+
+#add form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+#add label {
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+#radioPrio {
+    color: #ffffff;
+    border-style: dotted;
+    width: 230px;
+}
+
+#add input[type="text"],
+#add input[type="date"] {
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+/* Agrupando os radios de prioridade numa linha só */
+#add input[type="radio"] {
+    margin-left: 8px;
+    margin-right: 4px;
+}
+
+#add h2 {
+    color: #ffffff;
+    font-size: 15px;
+    margin-top: 8px;
+}
+
+#add button[type="submit"] {
+    margin-top: 10px;
+    padding: 12px;
+    background-color: #ffffff;
+    color: #052945;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#add button[type="submit"]:hover {
+    background-color: #f7f6f5;
+}
+
+#add button[type="reset"] {
+    padding: 10px;
+    background-color: transparent;
+    color: #ffffff;
+    border: 1px solid #ffffff;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+/* ============================================
+   CONTAGEM POR STATUS (3 caixas azul-escuro à direita)
+   ============================================ */
+#contagemProgresso {
+    grid-column: 2;
+    grid-row: 2;
+
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+#contagemProgresso div {
+    background-color: #052945;
+    color: #ffffff;
+    text-align: center;
+    padding: 20px 10px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+/* ============================================
+   CONTAGEM POR PRIORIDADE (3 blocos coloridos)
+   ============================================ */
+#contagemCategoria {
+    grid-column: 1 / -1;
+    grid-row: 3;
+
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+#contagemCategoria div {
+    flex: 1;
+    text-align: center;
+    padding: 20px;
+    border-radius: 6px;
+    font-weight: bold;
+    color: #052945;
+}
+
+/* A ordem no JS é sempre Baixa, Média, Alta — por isso dá pra usar nth-child */
+#contagemCategoria div:nth-child(1) { background-color: #4caf50; } /* Baixa - verde */
+#contagemCategoria div:nth-child(2) { background-color: #ffc107; } /* Média - amarelo */
+#contagemCategoria div:nth-child(3) { background-color: #f44336; color: #ffffff; } /* Alta - vermelho */
+
+/* ============================================
+   COLUNAS DE CARDS (Aberto / Andamento / Finalizado)
+   ============================================ */
+#cardsTarefa {
+    grid-column: 1 / -1;
+    grid-row: 4;
+
+    display: flex;
+    gap: 20px;
+    margin-top: 25px;
+    align-items: flex-start;
+}
+
+/* Título de cada coluna (atualmente uma <label>) */
+.coluna > label {
+    display: block;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    border-bottom: 2px solid #052945;
+    padding-bottom: 8px;
+    margin-bottom: 12px;
+}
+
+.cards {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* ============================================
+   CARD INDIVIDUAL
+   ============================================ */
+.card {
+    background-color: #ffffff;
+    border-left: 5px solid #052945; /* cor padrão, sobrescrita pelas classes de prioridade abaixo */
+    border-radius: 6px;
+    padding: 15px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card h3 {
+    font-size: 16px;
+    margin-bottom: 6px;
+}
+
+.card h2 {
+    font-size: 12px;
+    font-weight: normal;
+    margin-bottom: 6px;
+    line-height: 1.4;
+}
+
+.card p {
+    font-size: 13px;
+    color: #555555;
+    margin-bottom: 10px;
+}
+
+/* Cores da barra lateral por prioridade
+   (depende do JS adicionar a classe card-alta / card-media / card-baixa no divCard) */
+.card-alta { border-left-color: #f44336; }
+.card-media { border-left-color: #ffc107; }
+.card-baixa { border-left-color: #4caf50; }
+
+/* ============================================
+   BOTÕES DE AÇÃO DENTRO DO CARD
+   ============================================ */
+.acoes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.acoes button {
+    border: none;
+    background: none;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 4px 0;
+}
+
+.btn-andamento { color: #052945; }
+.btn-finalizar { color: #4caf50; }
+.btn-reabrir { color: #ffc107; }
+.btn-remover {
+    color: #f44336;
+    width: 100%;
+    text-align: center;
+    border-top: 1px solid #f7f6f5;
+    padding-top: 8px;
+    margin-top: 4px;
+}
+
+.acoes button:hover {
+    text-decoration: underline;
 }

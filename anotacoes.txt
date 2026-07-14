@@ -43,3 +43,12 @@ tem mais coisa a fazer na loja eletrica, melhor ver o github do professor para v
 o carrinho.js dele é interessante
 
 Teremos que saber explicar como funciona o código, ele vai sortear um nome aleatório, se responder corretamente vai afetar nossa nota
+
+ctrl + space para trazer o menu enmet, menu de ações rápidas de volta
+
+------------------------- 
+
+stringify -> pode servir para transformar um array em uma string, para salvar no localStorage
+
+JSON.parse - converte string para objeto js
+JSON.stringify - converte objeto js para string

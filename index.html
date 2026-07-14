@@ -31,12 +31,13 @@
                 <h2>
                     <label for="prioridade">Prioridade</label>
                 </h2>
+                <p id="radioPrio">
                 <input type="radio" name="prioridade" id="alta" value="A" required> Alta
 
                 <input type="radio" name="prioridade" id="media" value="M" required> Média
 
                 <input type="radio" name="prioridade" id="baixa" value="B" required> Baixa
-
+                </p>
                 <label for="dataInclusao">Data Tarefa</label>
                 <input type="date" name="dataInclusao" id="dataInclusao" class="" required placeholder="data">
 
@@ -55,17 +56,27 @@
 
         <div id="cardsTarefa">
 
-            <div id="aberto" class="cards">
-                
+            <div class="coluna">
+                <label for="aberto">ABERTO</label>
+                <div id="aberto" class="cards">
+        
+                </div>
             </div>
-
-            <div id="andamento" class="cards">
-
+        
+            <div class="coluna">
+                <label for="andamento">ANDAMENTO</label>
+                <div id="andamento" class="cards">
+        
+                </div>
             </div>
-
-            <div id="finalizado" class="cards">
-
+        
+            <div class="coluna">
+                <label for="finalizado">FINALIZADO</label>
+                <div id="finalizado" class="cards">
+        
+                </div>
             </div>
+        
         </div>
 
 
