@@ -30,3 +30,16 @@ tarefas.findIndex(t => t.id === 5) // retorna a posição da tarefa com id 5
 
 
 vai ser interessante pesquisar mais sobre banco de dados, duplicidade de valores, etc
+
+
+fiquei em duvida sobre elem, forEach
+
+localStorage - no dispositivo do cliente
+
+sectionStorage - na memoria
+
+tem mais coisa a fazer na loja eletrica, melhor ver o github do professor para ver como ele fez, está no claude
+
+o carrinho.js dele é interessante
+
+Teremos que saber explicar como funciona o código, ele vai sortear um nome aleatório, se responder corretamente vai afetar nossa nota

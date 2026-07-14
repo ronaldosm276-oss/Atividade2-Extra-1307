@@ -9,7 +9,7 @@ form.addEventListener('submit', (evt) => {
 
     evt.preventDefault()
 
-    const tarefa = document.querySelector('#tarefa').value
+    const inputTarefa = document.querySelector('#tarefa').value
     const responsavel = document.querySelector('#responsavel').value
     const descricao = document.querySelector('#descricao').value
     const data = document.querySelector('#dataInclusao').value
@@ -24,7 +24,7 @@ form.addEventListener('submit', (evt) => {
     // Montando o objeto da nova tarefa
     const novaTarefa = {
         id: proximoId,
-        tarefa: tarefa,
+        tarefa: inputTarefa,
         responsavel: responsavel,
         descricao: descricao,
         data: data,
@@ -40,6 +40,6 @@ form.addEventListener('submit', (evt) => {
 
     console.log(tarefas) // só pra você conferir se tá empilhando certo
 
-    tarefa = ''
+    form.reset()
+    
 })
-
