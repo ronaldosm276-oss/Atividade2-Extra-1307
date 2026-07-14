@@ -9,10 +9,13 @@ form.addEventListener('submit', (evt) => {
 
     evt.preventDefault()
 
-    const inputTarefa = document.querySelector('#tarefa').value
+    const tarefa = document.querySelector('#tarefa').value
     const responsavel = document.querySelector('#responsavel').value
     const descricao = document.querySelector('#descricao').value
     const data = document.querySelector('#dataInclusao').value
+    const divAberto = document.querySelector('#aberto')
+    const divAndamento = document.querySelector('#andamento')
+    const divFinalizado = document.querySelector('#finalizado')
 
     const prioridadeSelecionada = document.querySelector('input[name="prioridade"]:checked')
 
@@ -24,7 +27,7 @@ form.addEventListener('submit', (evt) => {
     // Montando o objeto da nova tarefa
     const novaTarefa = {
         id: proximoId,
-        tarefa: inputTarefa,
+        tarefa: tarefa,
         responsavel: responsavel,
         descricao: descricao,
         data: data,
@@ -41,5 +44,5 @@ form.addEventListener('submit', (evt) => {
     console.log(tarefas) // só pra você conferir se tá empilhando certo
 
     form.reset()
-    
+
 })
