@@ -32,11 +32,11 @@
                     <label for="prioridade">Prioridade</label>
                 </h2>
                 <p id="radioPrio">
-                <input type="radio" name="prioridade" id="alta" value="A" required> Alta
+                    <input type="radio" name="prioridade" id="alta" value="A" required> Alta
 
-                <input type="radio" name="prioridade" id="media" value="M" required> Média
+                    <input type="radio" name="prioridade" id="media" value="M" required> Média
 
-                <input type="radio" name="prioridade" id="baixa" value="B" required> Baixa
+                    <input type="radio" name="prioridade" id="baixa" value="B" required> Baixa
                 </p>
                 <label for="dataInclusao">Data Tarefa</label>
                 <input type="date" name="dataInclusao" id="dataInclusao" class="" required placeholder="data">
@@ -45,6 +45,10 @@
                 <button type="reset">Limpar</button>
 
             </form>
+            <button type="button" id="btnLimparTudo">Limpar Tudo</button>
+            <button type="button" id="btnDummyAlta">+ Alta</button>
+            <button type="button" id="btnDummyMedia">+ Média</button>
+            <button type="button" id="btnDummyBaixa">+ Baixa</button>
         </section>
 
         <section id="contagemProgresso">
@@ -59,24 +63,24 @@
             <div class="coluna">
                 <label for="aberto">ABERTO</label>
                 <div id="aberto" class="cards">
-        
+
                 </div>
             </div>
-        
+
             <div class="coluna">
                 <label for="andamento">ANDAMENTO</label>
                 <div id="andamento" class="cards">
-        
+
                 </div>
             </div>
-        
+
             <div class="coluna">
                 <label for="finalizado">FINALIZADO</label>
                 <div id="finalizado" class="cards">
-        
+
                 </div>
             </div>
-        
+
         </div>
 
 

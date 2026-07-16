@@ -107,6 +107,17 @@ body {
     border-radius: 6px;
     cursor: pointer;
 }
+#btnLimparTudo {
+    padding: 10px 20px;
+    background-color: transparent;
+    color: #ffffff;
+    border: 1px solid #ffffff;
+    border-radius: 6px;
+    cursor: pointer;
+    display: block;
+    width: fit-content;   /* o botão só ocupa o tamanho do próprio conteúdo, não a linha toda */
+    margin: 10px auto 0;  /* margin-top: 10px, e "auto" nas laterais centraliza horizontalmente */
+}
 
 /* ============================================
    CONTAGEM POR STATUS (3 caixas azul-escuro à direita)
@@ -196,6 +207,7 @@ body {
     border-radius: 6px;
     padding: 15px;
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+    height: autopx;
 }
 
 .card h3 {
@@ -229,6 +241,7 @@ body {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
+    justify-content: space-around;
 }
 
 .acoes button {
@@ -254,4 +267,49 @@ body {
 
 .acoes button:hover {
     text-decoration: underline;
+}
+/*
+Pegando a prioridade, transformando em classe, aplicando cor adequada
+*/
+.Alta, .Média, .Baixa {
+    font-weight: bold;
+    font-size: 14px;
+    font-family: 'Segoe UI', Verdana, sans-serif;
+    display: block;
+    text-align: center;
+}
+
+#prioridadeCards {
+    display: block;
+    font-size: 24px;
+    font-weight: bold;
+    animation: wobble 4s ease-in-out infinite;
+}
+
+.card p {
+    word-wrap: break-word;      /* forma mais antiga/compatível */
+    overflow-wrap: break-word;  /* forma moderna, mesmo efeito */
+   
+}
+
+@keyframes wobble {
+    0%, 100% {
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(-4deg);
+    }
+    75% {
+        transform: rotate(4deg);
+    }
+}
+
+.Alta {
+    color: #f44336;
+}
+.Média {
+    color: #ffc107;
+}
+.Baixa {
+    color: #4caf50;
 }
