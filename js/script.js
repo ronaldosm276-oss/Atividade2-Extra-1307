@@ -12,6 +12,7 @@ const divAndamento = document.querySelector('#andamento')
 const divFinalizado = document.querySelector('#finalizado')
 const form = document.querySelector('#addTarefa')
 const containerCards = document.querySelector('#cardsTarefa')
+const btnLimparTudo = document.querySelector('#btnLimparTudo')
 
 // ============================================
 // FUNÇÃO: cria o HTML de UM card, a partir de uma tarefa
@@ -32,7 +33,8 @@ const cardsTarefa = (tarefasCards) => {
     h3Titulo.innerHTML = tarefasCards.tarefa
 
     const h2Responsavel = document.createElement('h2')
-    h2Responsavel.innerHTML = `${tarefasCards.responsavel} - DATA ENTREGA TAREFA ( ${tarefasCards.data} ) - ${tarefasCards.prioridade}`
+    h2Responsavel.innerHTML = `${tarefasCards.responsavel} <br> <br> <span class="${tarefasCards.prioridade}"> - DATA ENTREGA TAREFA ( ${tarefasCards.data} ) - </span> 
+    <span id="prioridadeCards" class="${tarefasCards.prioridade}"> ${tarefasCards.prioridade}  <br> </span>`
 
     const pDescricao = document.createElement('p')
     pDescricao.innerHTML = tarefasCards.descricao
@@ -188,6 +190,7 @@ form.addEventListener('submit', (evt) => {
 
     renderizar()
     atualizarContagens()
+
 })
 
 // ============================================
@@ -217,3 +220,52 @@ containerCards.addEventListener('click', (evt) => {
     renderizar()
     atualizarContagens()
 })
+
+
+
+btnLimparTudo.addEventListener('click', () => {
+    const confirmou = confirm('Tem certeza que deseja remover todas as tarefas?')
+
+    if (confirmou) {
+        tarefas = []          // esvazia o array
+        renderizar()          // redesenha (agora sem nenhum card)
+        atualizarContagens()  // zera as contagens
+    }
+})
+
+// ============================================
+// FUNÇÃO DEBUG: cria uma tarefa fake rapidamente, pra testes
+// ============================================
+const criarTarefaDummy = (prioridade) => {
+    const novaTarefa = {
+        id: proximoId,
+        tarefa: `Tarefa Teste ${proximoId}`,
+        responsavel: 'Responsável Teste',
+        descricao: 'Descrição gerada automaticamente para debug.',
+        data: '2026-07-16',
+        prioridade: prioridade,
+        status: 'aberto'
+    }
+
+    tarefas.push(novaTarefa)
+    proximoId++
+
+    renderizar()
+    atualizarContagens()
+}
+
+// Pegando os 3 botões
+const btnDummyAlta = document.querySelector('#btnDummyAlta')
+const btnDummyMedia = document.querySelector('#btnDummyMedia')
+const btnDummyBaixa = document.querySelector('#btnDummyBaixa')
+
+// Cada botão chama a mesma função, só muda o parâmetro
+btnDummyAlta.addEventListener('click', () => criarTarefaDummy('Alta'))
+btnDummyMedia.addEventListener('click', () => criarTarefaDummy('Média'))
+btnDummyBaixa.addEventListener('click', () => criarTarefaDummy('Baixa'))
+
+// ============================================
+// INICIALIZAÇÃO — roda uma vez quando a página carrega
+// ============================================
+renderizar()
+atualizarContagens()
